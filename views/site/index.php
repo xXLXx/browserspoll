@@ -9,6 +9,8 @@ use yii\web\View;
 <?php
 /* @var $this yii\web\View */
 $this->title = 'Browser Poll';
+
+$this->registerJsFile('@web/js/home.js', ['depends' => 'yii\web\JqueryAsset']);
 ?>
 <div class="site-index">
 
@@ -53,35 +55,23 @@ $this->title = 'Browser Poll';
                 ?>
             </div>
             <div class="col-lg-6">
+                <span id="pie-hover-text" class="pull-left"></span>
                 <?= Chart::widget([
                     'data' => $chartData,
                     'options' => [
                         'series' => [
                             'pie'   => [
                                 'show'      => true,
-                                'combine'   => [
-                                    'color'     => '#999',
-                                    'threshold' => 0.05
-                                ],
-                                'label'     => [
-                                    'show'          => true,
-                                    'radius'        => 3/4,
-                                    'background'    => [
-                                        'opacity'   => 0.8,
-                                        'color'     => '#000'
-                                    ]
-                                ]
                             ]
-                        ],
-                        'legend' => [
-                            'show'  => false,
                         ],
                         'grid'  => [
                             'hoverable' => true
                         ]
                     ],
                     'htmlOptions' => [
-                        'style' => 'width:250px;height:250px;'
+                        'style' => 'width:400px; height:250px;',
+                        'class' => 'center-block',
+                        'data-hoverable-pie' => '#pie-hover-text'
                     ],
                     'plugins' => [
                         // Use helper class with constants to specify plugin type
@@ -89,7 +79,7 @@ $this->title = 'Browser Poll';
                     ]
                 ]);
                 ?>
-                <div id="chart"></div>
+                <br>
             </div>
         </div>
         <div class="row">
