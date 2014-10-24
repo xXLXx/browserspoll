@@ -29,6 +29,7 @@ $this->registerJsFile('@web/js/home.js', ['depends' => 'yii\web\JqueryAsset']);
                 <?php $chartData = []; ?>
                 <?=
                     yii\grid\GridView::widget([
+                        'id'            => 'browser-grid',
                         'dataProvider'  => $browserDataProvider,
                         'layout'        => '{items}',
                         'columns'       => [
@@ -69,9 +70,10 @@ $this->registerJsFile('@web/js/home.js', ['depends' => 'yii\web\JqueryAsset']);
                         ]
                     ],
                     'htmlOptions' => [
-                        'style' => 'width:400px; height:250px;',
-                        'class' => 'center-block',
-                        'data-hoverable-pie' => '#pie-hover-text'
+                        'style'                 => 'width:400px; height:250px;',
+                        'class'                 => 'center-block',
+                        'data-hoverable-pie'    => '#pie-hover-text',
+                        'data-hoverable-grid'   => '#browser-grid'
                     ],
                     'plugins' => [
                         // Use helper class with constants to specify plugin type
