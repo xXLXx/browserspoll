@@ -41,7 +41,7 @@ $this->registerJsFile('@web/js/vote.js', ['depends' => 'yii\web\JqueryAsset']);
                 <?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
                     'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
                 ]) ?>
-                <?= $form->field($model, 'history', ['inputOptions' => ['history-input' => ''], 'template' => '{input}']) ?>
+                <?= $form->field($model, 'history', ['inputOptions' => ['history-input' => ''], 'template' => '{input}'])->hiddenInput() ?>
                 <div class="form-group">
                     <?= Html::submitButton('Submit', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
                 </div>
