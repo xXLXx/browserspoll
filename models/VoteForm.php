@@ -72,13 +72,11 @@ class VoteForm extends Model
      */
     public function sendEmail()
     {
-        Yii::$app->mailer->compose()
+        return Yii::$app->mailer->compose()
             ->setTo($this->email)
             ->setFrom([Yii::$app->params['adminEmail'] => 'BROWSER POLL'])
             ->setSubject('Vote Confirmation')
             ->setTextBody('Thank you for contibuting to our site us.')
             ->send();
-
-        return true;
     }
 }
